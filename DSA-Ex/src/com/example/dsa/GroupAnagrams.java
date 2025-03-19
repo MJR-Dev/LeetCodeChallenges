@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class GroupAnagrams {
@@ -45,6 +46,8 @@ public class GroupAnagrams {
 	
 	public static String sortStr(String s) {
 		String tmp = s.chars().sorted().mapToObj(c -> String.valueOf((char)c)).collect(Collectors.joining());
+		//printing the number of occurances of each letter in a string
+		s.chars().mapToObj(c -> String.valueOf((char)c)).collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet().stream().forEach(entry -> System.out.println(entry.getKey() + "** " + entry.getValue()));
 		//System.out.println("tmp:: " + tmp);
 		return tmp;
 	} 
