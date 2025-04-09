@@ -29,35 +29,7 @@ public class ReverseWordsInSentence {
 			}			
 			lst.add(sb.toString());
 		}
-		lst.stream().forEach(str -> System.out.print(str + " "));
-		
-		String s2 = "12349";
-		String s1 = "123";
-		StringBuilder sb = new StringBuilder();
-		int i = s1.length()-1;
-		int j = s2.length()-1;
-		if(i > 0 && j > 0) {
-			int carryForward = 0;
-			while(i>= 0 || j >= 0) {
-				Integer sum1 = 0;
-				if(i < 0 && j >= 0) {
-					sum1 = Integer.parseInt(String.valueOf(s2.charAt(j))) + carryForward;
-				} else if(i >= 0 && j < 0) {
-					sum1 = Integer.parseInt(String.valueOf(s1.charAt(i))) + carryForward;
-				} else {
-					sum1 = Integer.parseInt(String.valueOf(s1.charAt(i))) +  Integer.parseInt(String.valueOf(s2.charAt(j))) + carryForward;
-				}
-				carryForward = 0;
-				if(sum1 > 9) {
-					carryForward = sum1/10;
-					sum1 = sum1 % 10;					
-				}
-				sb.append(String.valueOf(sum1));
-				i--;
-				j--;
-			}
-		}
-		System.out.println("sum: " + sb.reverse().toString());
+		lst.stream().forEach(str -> System.out.print(str + " "));		
 	}
 
 }
